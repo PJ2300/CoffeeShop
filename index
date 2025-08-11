@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Chronicles Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Coffee Chronicles</h1>
+        <p>Your daily dose of coffee inspiration</p>
+    </header>
+    <main>
+        <section id="blog-posts">
+            <!-- Sample Blog Posts -->
+            <article class="post">
+                <img src="images/coffee1.jpg" alt="Freshly brewed coffee in a cup">
+                <div>
+                    <h2>The Art of Pour Over</h2>
+                    <p class="meta">August 10, 2025 | by Jane Brewster</p>
+                    <p>Discover the slow, meditative process of pour-over brewing. Learn how to perfect your technique for a rich, aromatic cup every time.</p>
+                </div>
+            </article>
+            <article class="post">
+                <img src="images/coffee2.jpg" alt="Espresso shot in a glass">
+                <div>
+                    <h2>Espresso Explained</h2>
+                    <p class="meta">August 8, 2025 | by Mike Beans</p>
+                    <p>Espresso is the heart of many coffee drinks. Unpack the secrets to pulling the perfect shot and why it matters.</p>
+                </div>
+            </article>
+        </section>
+        <section id="add-post">
+            <h2>Add a New Post</h2>
+            <form id="postForm">
+                <input type="text" id="title" placeholder="Post Title" required>
+                <input type="text" id="author" placeholder="Author Name" required>
+                <textarea id="content" placeholder="Your post content..." required></textarea>
+                <input type="url" id="image" placeholder="Image URL (optional)">
+                <button type="submit">Add Post</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Coffee Chronicles. Brewed with ❤️ for coffee lovers.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
