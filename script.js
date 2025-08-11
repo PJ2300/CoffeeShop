@@ -1,53 +1,58 @@
-document.getElementById('postForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+    // Dummy Blog Posts
+    const posts = [
+        {
+            title: "Der perfekte Espresso",
+            image: "https://images.unsplash.com/photo-1511920170033-f8396924c348",
+            content: "Feine Crema, intensiver Geschmack – so gelingt er!"
+        },
+        {
+            title: "Latte Art für Anfänger",
+            image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+            content: "Herz, Rosetta oder Tulpe – probier's aus!"
+        }
+    ];
 
-    const title = document.getElementById('title').value.trim();
-    const author = document.getElementById('author').value.trim();
-    const content = document.getElementById('content').value.trim();
-    const image = document.getElementById('image').value.trim();
+    const postsContainer = document.getElementById("posts");
+    posts.forEach(post => {
+        const div = document.createElement("div");
+        div.classList.add("post");
+        div.innerHTML = `
+            <img src="${post.image}" alt="${post.title}">
+            <h3>${post.title}</h3>
+            <p>${post.content}</p>
+        `;
+        postsContainer.appendChild(div);
+    });
 
-    if (!title || !author || !content) {
-        alert('Please fill in all fields except image.');
-        return;
-    }
+    // Scroll Animation
+    const fadeElems = document.querySelectorAll(".fade-in");
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.2 });
 
-    const postSection = document.getElementById('blog-posts');
+    fadeElems.forEach(el => observer.observe(el));
 
-    // Format current date
-    const now = new Date();
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const dateString = now.toLocaleDateString('en-US', options);
+    // Login Funktion (Dummy)
+    const loginForm = document.getElementById("loginForm");
+    const loginMsg = document.getElementById("loginMessage");
 
-    // Create elements
-    const article = document.createElement('article');
-    article.className = 'post';
+    loginForm.addEventListener("submit", e => {
+        e.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
 
-    const imgElement = document.createElement('img');
-    imgElement.src = image || 'images/coffee-placeholder.jpg';
-    imgElement.alt = title;
-
-    const div = document.createElement('div');
-    const h2 = document.createElement('h2');
-    h2.textContent = title;
-
-    const meta = document.createElement('p');
-    meta.className = 'meta';
-    meta.textContent = `${dateString} | by ${author}`;
-
-    const p = document.createElement('p');
-    p.textContent = content;
-
-    // Assemble
-    div.appendChild(h2);
-    div.appendChild(meta);
-    div.appendChild(p);
-
-    article.appendChild(imgElement);
-    article.appendChild(div);
-
-    // Insert at the top
-    postSection.insertBefore(article, postSection.firstChild);
-
-    // Reset form
-    this.reset();
+        if (username && password) {
+            loginMsg.textContent = `Willkommen, ${username}! 🎉`;
+            loginMsg.style.color = "green";
+            loginForm.reset();
+        } else {
+            loginMsg.textContent = "Bitte alle Felder ausfüllen!";
+            loginMsg.style.color = "red";
+        }
+    });
 });
