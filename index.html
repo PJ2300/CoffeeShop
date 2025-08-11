@@ -1,50 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee Chronicles Blog</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaffee Blog</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Coffee Chronicles</h1>
-        <p>Your daily dose of coffee inspiration</p>
-    </header>
-    <main>
-        <section id="blog-posts">
-            <!-- Sample Blog Posts -->
-            <article class="post">
-                <img src="images/coffee1.jpg" alt="Freshly brewed coffee in a cup">
-                <div>
-                    <h2>The Art of Pour Over</h2>
-                    <p class="meta">August 10, 2025 | by Jane Brewster</p>
-                    <p>Discover the slow, meditative process of pour-over brewing. Learn how to perfect your technique for a rich, aromatic cup every time.</p>
-                </div>
-            </article>
-            <article class="post">
-                <img src="images/coffee2.jpg" alt="Espresso shot in a glass">
-                <div>
-                    <h2>Espresso Explained</h2>
-                    <p class="meta">August 8, 2025 | by Mike Beans</p>
-                    <p>Espresso is the heart of many coffee drinks. Unpack the secrets to pulling the perfect shot and why it matters.</p>
-                </div>
-            </article>
-        </section>
-        <section id="add-post">
-            <h2>Add a New Post</h2>
-            <form id="postForm">
-                <input type="text" id="title" placeholder="Post Title" required>
-                <input type="text" id="author" placeholder="Author Name" required>
-                <textarea id="content" placeholder="Your post content..." required></textarea>
-                <input type="url" id="image" placeholder="Image URL (optional)">
-                <button type="submit">Add Post</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Coffee Chronicles. Brewed with ❤️ for coffee lovers.</p>
-    </footer>
-    <script src="script.js"></script>
+
+<header>
+  <h1>☕ Mein Kaffee Blog</h1>
+  <nav>
+    <ul>
+      <li><a href="#about">Über mich</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#gallery">Galerie</a></li>
+      <li><a href="#login">Anmelden</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="parallax" style="background-image: url('https://images.unsplash.com/photo-1515442261605-cd4ce37b7e2d');">
+  <div class="overlay-text">Willkommen im Coffee Paradise</div>
+</section>
+
+<section id="about" class="fade-in">
+  <h2>Über mich</h2>
+  <p>Ich bin Paolo – leidenschaftlicher Kaffee-Liebhaber, Hobby-Barista und Espresso-Enthusiast.</p>
+</section>
+
+<section id="blog" class="fade-in">
+  <h2>Neueste Blogposts</h2>
+  <div id="posts"></div>
+</section>
+
+<section id="gallery" class="fade-in">
+  <h2>Kaffee Galerie</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Latte Art">
+    <img src="https://images.unsplash.com/photo-1526401485004-2fda9f6d3f89" alt="Kaffeebohnen">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Espresso">
+    <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187" alt="Cappuccino">
+  </div>
+</section>
+
+<section id="login" class="fade-in">
+  <h2>Mitglied werden</h2>
+  <form id="loginForm">
+    <input type="text" id="username" placeholder="Benutzername" required>
+    <input type="password" id="password" placeholder="Passwort" required>
+    <button type="submit">Anmelden</button>
+  </form>
+  <p id="loginMessage"></p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Mein Kaffee Blog</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
