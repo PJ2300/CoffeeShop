@@ -1,63 +1,94 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kaffee Blog</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaffee Blog</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <h1>Kaffee Blog</h1>
+        <nav>
+            <a href="#blog">Blog</a>
+            <a href="#story">Cappuccino Story</a>
+            <a href="#login">Anmelden</a>
+        </nav>
+    </header>
 
-<header>
-  <h1>☕ Mein Kaffee Blog</h1>
-  <nav>
-    <ul>
-      <li><a href="#about">Über mich</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#gallery">Galerie</a></li>
-      <li><a href="#login">Anmelden</a></li>
-    </ul>
-  </nav>
-</header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Deine tägliche Dosis Kaffee</h2>
+        <p>Erfahre alles über Bohnen, Zubereitung und Latte Art.</p>
+    </section>
 
-<section class="parallax" style="background-image: url('https://images.unsplash.com/photo-1515442261605-cd4ce37b7e2d');">
-  <div class="overlay-text">Willkommen im Coffee Paradise</div>
-</section>
+    <!-- Blog Filter -->
+    <section id="blog" class="blog-section">
+        <h2>Unsere Artikel</h2>
+        <div class="filter-buttons">
+            <button data-filter="all">Alle</button>
+            <button data-filter="espresso">Espresso</button>
+            <button data-filter="latte">Latte</button>
+            <button data-filter="cappuccino">Cappuccino</button>
+        </div>
 
-<section id="about" class="fade-in">
-  <h2>Über mich</h2>
-  <p>Ich bin Paolo – leidenschaftlicher Kaffee-Liebhaber, Hobby-Barista und Espresso-Enthusiast.</p>
-</section>
+        <div class="blog-posts">
+            <div class="post espresso">
+                <img src="https://picsum.photos/400/250?random=1" alt="Espresso">
+                <h3>Perfekter Espresso</h3>
+                <div class="rating" data-rating="0"></div>
+                <p>Tipps für den perfekten Espresso...</p>
+            </div>
+            <div class="post latte">
+                <img src="https://picsum.photos/400/250?random=2" alt="Latte">
+                <h3>Latte Art Basics</h3>
+                <div class="rating" data-rating="0"></div>
+                <p>So gelingt deine erste Latte Art...</p>
+            </div>
+            <div class="post cappuccino">
+                <img src="https://picsum.photos/400/250?random=3" alt="Cappuccino">
+                <h3>Cappuccino-Meisterwerk</h3>
+                <div class="rating" data-rating="0"></div>
+                <p>Die perfekte Balance aus Milch und Espresso...</p>
+            </div>
+        </div>
+    </section>
 
-<section id="blog" class="fade-in">
-  <h2>Neueste Blogposts</h2>
-  <div id="posts"></div>
-</section>
+    <!-- Scroll Story -->
+    <section id="story" class="story-section">
+        <h2>Cappuccino Zubereitung</h2>
+        <div class="story-step hidden">
+            <img src="https://picsum.photos/500/300?random=4" alt="Bohnen mahlen">
+            <p>1. Bohnen mahlen</p>
+        </div>
+        <div class="story-step hidden">
+            <img src="https://picsum.photos/500/300?random=5" alt="Espresso ziehen">
+            <p>2. Espresso ziehen</p>
+        </div>
+        <div class="story-step hidden">
+            <img src="https://picsum.photos/500/300?random=6" alt="Milch schäumen">
+            <p>3. Milch schäumen</p>
+        </div>
+        <div class="story-step hidden">
+            <img src="https://picsum.photos/500/300?random=7" alt="Latte Art gießen">
+            <p>4. Latte Art gießen</p>
+        </div>
+    </section>
 
-<section id="gallery" class="fade-in">
-  <h2>Kaffee Galerie</h2>
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Latte Art">
-    <img src="https://images.unsplash.com/photo-1526401485004-2fda9f6d3f89" alt="Kaffeebohnen">
-    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Espresso">
-    <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187" alt="Cappuccino">
-  </div>
-</section>
+    <!-- Login Form -->
+    <section id="login" class="login-section">
+        <h2>Anmelden</h2>
+        <form>
+            <input type="text" placeholder="Benutzername" required>
+            <input type="password" placeholder="Passwort" required>
+            <button type="submit">Login</button>
+        </form>
+    </section>
 
-<section id="login" class="fade-in">
-  <h2>Mitglied werden</h2>
-  <form id="loginForm">
-    <input type="text" id="username" placeholder="Benutzername" required>
-    <input type="password" id="password" placeholder="Passwort" required>
-    <button type="submit">Anmelden</button>
-  </form>
-  <p id="loginMessage"></p>
-</section>
+    <!-- Back to Top Button -->
+    <button id="backToTop">⬆</button>
 
-<footer>
-  <p>&copy; 2025 Mein Kaffee Blog</p>
-</footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
