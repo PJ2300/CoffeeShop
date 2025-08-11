@@ -1,58 +1,47 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Dummy Blog Posts
-    const posts = [
-        {
-            title: "Der perfekte Espresso",
-            image: "https://images.unsplash.com/photo-1511920170033-f8396924c348",
-            content: "Feine Crema, intensiver Geschmack – so gelingt er!"
-        },
-        {
-            title: "Latte Art für Anfänger",
-            image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
-            content: "Herz, Rosetta oder Tulpe – probier's aus!"
-        }
-    ];
-
-    const postsContainer = document.getElementById("posts");
-    posts.forEach(post => {
-        const div = document.createElement("div");
-        div.classList.add("post");
-        div.innerHTML = `
-            <img src="${post.image}" alt="${post.title}">
-            <h3>${post.title}</h3>
-            <p>${post.content}</p>
-        `;
-        postsContainer.appendChild(div);
-    });
-
-    // Scroll Animation
-    const fadeElems = document.querySelectorAll(".fade-in");
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
+// Filter Funktion
+document.querySelectorAll(".filter-buttons button").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+        document.querySelectorAll(".post").forEach(post => {
+            post.style.display = (filter === "all" || post.classList.contains(filter)) ? "block" : "none";
         });
-    }, { threshold: 0.2 });
+    });
+});
 
-    fadeElems.forEach(el => observer.observe(el));
+// Sternebewertung
+document.querySelectorAll(".rating").forEach(ratingDiv => {
+    for (let i = 1; i <= 5; i++) {
+        const star = document.createElement("span");
+        star.innerHTML = "★";
+        star.addEventListener("click", () => {
+            ratingDiv.setAttribute("data-rating", i);
+            updateStars(ratingDiv);
+        });
+        ratingDiv.appendChild(star);
+    }
+});
+function updateStars(ratingDiv) {
+    const rating = ratingDiv.getAttribute("data-rating");
+    ratingDiv.querySelectorAll("span").forEach((star, index) => {
+        star.style.opacity = index < rating ? "1" : "0.3";
+    });
+}
 
-    // Login Funktion (Dummy)
-    const loginForm = document.getElementById("loginForm");
-    const loginMsg = document.getElementById("loginMessage");
-
-    loginForm.addEventListener("submit", e => {
-        e.preventDefault();
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-
-        if (username && password) {
-            loginMsg.textContent = `Willkommen, ${username}! 🎉`;
-            loginMsg.style.color = "green";
-            loginForm.reset();
-        } else {
-            loginMsg.textContent = "Bitte alle Felder ausfüllen!";
-            loginMsg.style.color = "red";
+// Scroll Story Animation
+const storySteps = document.querySelectorAll(".story-step");
+window.addEventListener("scroll", () => {
+    storySteps.forEach(step => {
+        const rect = step.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+            step.classList.add("visible");
         }
     });
+
+    // Back to top button anzeigen
+    document.getElementById("backToTop").style.display = window.scrollY > 200 ? "block" : "none";
+});
+
+// Back to Top
+document.getElementById("backToTop").addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
 });
